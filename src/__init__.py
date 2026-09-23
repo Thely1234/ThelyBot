@@ -1,19 +1,24 @@
-"""
-Package initialization for trading bot modules
+"""Package initialization for the arbitrage bot.
+
+Imports only the new open-Python modules. This package intentionally does
+not import any compiled (.so) module.
 """
 
-__version__ = "1.0.0"
-__author__ = "Trading Bot Team"
+__version__ = "2.0.0"
+__author__ = "Trading Team"
 
-from .config import *
-from .wallet_manager import WalletManager
-from .balance_checker import BalanceChecker
-from .trading_engine import TradingEngine
-from .logger_config import setup_logger
+from .bot import Bot
+from .connections import NonceTracker, assert_allowed_host, get_web3
+from .logging_setup import setup_logger
+from .market import MarketData
+from .pricing import PriceFeed
 
 __all__ = [
-    "WalletManager",
-    "BalanceChecker", 
-    "TradingEngine",
-    "setup_logger"
+    "Bot",
+    "NonceTracker",
+    "assert_allowed_host",
+    "get_web3",
+    "setup_logger",
+    "MarketData",
+    "PriceFeed",
 ]
